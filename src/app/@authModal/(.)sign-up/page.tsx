@@ -1,7 +1,7 @@
 import CloseModal from "@/components/CloseModal";
 import Signin from "@/components/Signin";
 
-const SigninModal: React.FunctionComponent = () => {
+const SignupModal: React.FunctionComponent = () => {
   return (
     <div className="fixed inset-0 bg-zinc-900/20 z-10">
       <div className="container flex items-center h-full max-w-lg mx-auto">
@@ -16,4 +16,4 @@ const SigninModal: React.FunctionComponent = () => {
   );
 };
 
-export default SigninModal;
+export default SignupModal;
