@@ -5,7 +5,7 @@ export const SubnedditValidator = z.object({
 });
 
 export const SubnedditSubscriptionValidator = z.object({
-  sunnedditId: z.string(),
+  subnedditId: z.string(),
 });
 
 export type CreateSubnedditPayload = z.infer<typeof SubnedditValidator>;
