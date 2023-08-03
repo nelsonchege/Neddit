@@ -1,7 +1,9 @@
 import { getAuthSession } from "@/actions/getSession";
 import SubscribeLeaveToggle from "@/components/SubscribeLeaveToggle";
+import { buttonVariants } from "@/components/ui/Button";
 import prisma from "@/lib/db";
 import { format } from "date-fns";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type LayoutProps = {
@@ -82,6 +84,15 @@ const Layout = async ({ children, params: { subneddit } }: LayoutProps) => {
                   subredditName={subneddit_.name}
                 />
               ) : null}
+              <Link
+                className={buttonVariants({
+                  variant: "outline",
+                  className: "w-full mb-6",
+                })}
+                href={`r/${subneddit}/submit`}
+              >
+                Create Post
+              </Link>
             </dl>
           </div>
         </div>
