@@ -1,3 +1,5 @@
+import PostEditor from "@/components/PostEditor";
+import { Button } from "@/components/ui/Button";
 import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -30,6 +32,14 @@ const SubmitPostPage = async ({ params }: SubmitPostProps) => {
             in r/{subneddit}
           </p>
         </div>
+      </div>
+
+      {/* form */}
+      <PostEditor subnedditId={subneddit_.id} />
+      <div className="w-full flex justify-end">
+        <Button type="submit" className="w-full" form="subneddit-post-form">
+          Post
+        </Button>
       </div>
     </div>
   );
