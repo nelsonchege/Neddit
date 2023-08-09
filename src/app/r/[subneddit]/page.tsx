@@ -1,5 +1,6 @@
 import { getAuthSession } from "@/actions/getSession";
 import MiniCreatePost from "@/components/MiniCreatePost";
+import SubnedditFeed from "@/components/SubnedditFeed";
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
@@ -38,6 +39,10 @@ const subnedditPage = async ({ params }: SubnedditProps) => {
         r/{subneddit.name}
       </h1>
       <MiniCreatePost session={session} />
+      <SubnedditFeed
+        initialPosts={subneddit.posts}
+        subnedditName={subaccount}
+      />
     </>
   );
 };
