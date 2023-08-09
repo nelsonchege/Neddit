@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
 import { type } from "os";
 import { PostVoteRequest } from "@/lib/validators/vote";
+import axios from "axios";
 
 type PostVoteClientProps = {
   postId: string;
@@ -37,6 +38,8 @@ const PostVoteClient = ({
         postId,
         voteType,
       };
+
+      await axios.patch("/api/subneddit/post/vote", payload);
     },
   });
 

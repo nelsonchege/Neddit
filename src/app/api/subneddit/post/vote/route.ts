@@ -26,10 +26,10 @@ export async function PATCH(req: Request) {
       where: {
         id: postId,
       },
-    //   include: {
-    //     author: true,
-    //     votes: true,
-    //   },
+      include: {
+        author: true,
+        votes: true,
+      },
     });
 
     if (!post) {
@@ -67,16 +67,16 @@ export async function PATCH(req: Request) {
         return acc;
       }, 0);
 
-      if (votesAmt >= CACHE_AFTER_UPVOTES) {
-        const cachePayload:CachedPost ={
-            id: post.,
-            title: "",
-            authorUserbane: "",
-            content: "",
-            currentVote: null,
-            createdAt: undefined
-        }
-      }
+      //   if (votesAmt >= CACHE_AFTER_UPVOTES) {
+      //     const cachePayload:CachedPost ={
+      //         id: post.id,
+      //         title: post.tit,
+      //         authorUserbane: "",
+      //         content: "",
+      //         currentVote: null,
+      //         createdAt: undefined
+      //     }
+      //   }
       return new Response("vote added");
     }
   } catch (error) {}
