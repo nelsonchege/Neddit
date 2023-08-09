@@ -48,7 +48,6 @@ const SubnedditFeed = ({ initialPosts, subnedditName }: SubnedditFeedProps) => {
           if (vote.type === "DOWN") return acc - 1;
           return acc;
         }, 0);
-
         const currentvote = post.votes.find(
           (vote) => vote.userId === session?.user.id
         );
@@ -59,6 +58,8 @@ const SubnedditFeed = ({ initialPosts, subnedditName }: SubnedditFeedProps) => {
                 subnedditName={post.subneddit.name}
                 post={post}
                 commentAmt={post.comments.length}
+                votesAmt={voteAmt}
+                currentVote={currentvote}
               />
             </li>
           );
@@ -69,6 +70,8 @@ const SubnedditFeed = ({ initialPosts, subnedditName }: SubnedditFeedProps) => {
               key={index}
               post={post}
               commentAmt={post.comments.length}
+              votesAmt={voteAmt}
+              currentVote={currentvote}
             />
           );
         }

@@ -3,6 +3,7 @@ import { Post, User, Vote } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import React, { useRef } from "react";
 import EditorOutput from "./EditorOutput";
+import PostVoteClient from "./postVote/PostVoteClient";
 
 type PostProps = {
   subnedditName: string;
@@ -11,13 +12,26 @@ type PostProps = {
     votes: Vote[];
   };
   commentAmt: number;
+  votesAmt: number;
+  currentVote?: Pick<Vote, "type">;
 };
 
-const Post = ({ subnedditName, post, commentAmt }: PostProps) => {
+const Post = ({
+  subnedditName,
+  post,
+  commentAmt,
+  votesAmt: _votesAmt,
+  currentVote,
+}: PostProps) => {
   const postRef = useRef<HTMLDivElement>(null);
   return (
     <div className="rounded-md bg-white shadow">
-      <div className="px-6 py-4 flex justify-between">
+      <div className="px-6 py-4 flex flex-col sm:flex-row justify-between">
+        <PostVoteClient
+          initialVote={currentVote}
+          postId={post.id}
+          initialVoteAmt={_votesAmt}
+        />
         <div className="w-0 flex-1">
           <div className="max-h-40 mt-1 text-xs text-gray-500">
             {subnedditName ? (
