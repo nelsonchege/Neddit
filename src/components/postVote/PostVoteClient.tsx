@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
 import { PostVoteRequest } from "@/lib/validators/vote";
 import axios, { AxiosError } from "axios";
-import { Vote, VoteType } from "@prisma/client";
+import { VoteType } from "@prisma/client";
 import { toast } from "@/hooks/use-toast";
 
 type PostVoteClientProps = {
@@ -81,6 +81,7 @@ const PostVoteClient = ({
   return (
     <div className="flex sm:flex-col gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0">
       <Button
+        disabled={isLoading}
         size={"sm"}
         variant={"ghost"}
         aria-label="upvote"
@@ -97,6 +98,7 @@ const PostVoteClient = ({
       </p>
 
       <Button
+        disabled={isLoading}
         size={"sm"}
         variant={"ghost"}
         aria-label="upvote"
