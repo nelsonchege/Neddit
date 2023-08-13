@@ -27,6 +27,9 @@ const subnedditPage = async ({ params }: SubnedditProps) => {
           comments: true,
           subneddit: true,
         },
+        orderBy: {
+          createdAt: "desc",
+        },
         take: INFINITE_SCROLLING_PAGINATION_RESULTS,
       },
     },
