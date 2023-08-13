@@ -1,5 +1,5 @@
 import { formatTimeToNow } from "@/lib/utils";
-import { Post, User, Vote } from "@prisma/client";
+import { Post, User, Vote, VoteType } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import React, { useRef } from "react";
 import EditorOutput from "./EditorOutput";
@@ -13,7 +13,7 @@ type PostProps = {
   };
   commentAmt: number;
   votesAmt: number;
-  currentVote?: Pick<Vote, "type">;
+  currentVote?: VoteType | null;
 };
 
 const Post = ({

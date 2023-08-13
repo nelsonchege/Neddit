@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     }
 
     return new Response(
-      "Could not post to subneddit at this time,please try adain later",
+      "Could not post to subneddit at this time,please try again later",
       { status: 500 }
     );
   }
