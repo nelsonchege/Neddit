@@ -4,6 +4,7 @@ import { Icons } from "./Icons";
 import { buttonVariants } from "./ui/Button";
 import { getAuthSession } from "@/actions/getSession";
 import UserAccountNav from "./UserAccountNav";
+import SearchBar from "./SearchBar";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -18,9 +19,9 @@ const Navbar = async () => {
             Neddit
           </p>
         </Link>
-        {/* search */}
 
-        {/* authentication */}
+        <SearchBar />
+
         {session?.user ? (
           <UserAccountNav user={session.user} />
         ) : (
